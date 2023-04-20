@@ -12,6 +12,7 @@ class concept:
 #  输出一个序列中的所有概念
 def output_concept_list(all_cpt):
     n = len(all_cpt)
+    print("\n" + "概念如下：")
     for i in range(n):
         output_concept(all_cpt[i], i)
     print()
@@ -105,25 +106,27 @@ def get_all_cpt(table, a, x_list):
                 tmp.append(judge_xy(table, x_list[i][k], a[k][j]))
             cpt.Y.append(min(tmp))
 
-        all_cpt.append(cpt)
+        #  如果不想去重，直接在这里插入all_cpt，并注释后面的去重代码即可
+        # all_cpt.append(cpt)
 
-        # #  插入总集
-        # sizeof_all = len(all_cpt)
-        # #  插入第一个
-        # if sizeof_all == 0:
-        #     all_cpt.append(cpt)
-        # #  遍历，检查是否重复   flg :  True -> 不重复   False -> 重复
-        # else:
-        #     flg = True
-        #     for k in range(sizeof_all):
-        #         #  重复
-        #         if cpt.Y == all_cpt[k].Y:
-        #             for g in range(n):
-        #                 all_cpt[k].X[g] = max(all_cpt[k].X[g], cpt.X[g])
-        #             flg = False
-        #     #  无重复
-        #     if flg:
-        #         all_cpt.append(cpt)
+        #  去重
+        #  插入总集
+        sizeof_all = len(all_cpt)
+        #  插入第一个
+        if sizeof_all == 0:
+            all_cpt.append(cpt)
+        #  遍历，检查是否重复   flg :  True -> 不重复   False -> 重复
+        else:
+            flg = True
+            for k in range(sizeof_all):
+                #  重复
+                if cpt.Y == all_cpt[k].Y:
+                    for g in range(n):
+                        all_cpt[k].X[g] = max(all_cpt[k].X[g], cpt.X[g])
+                    flg = False
+            #  无重复
+            if flg:
+                all_cpt.append(cpt)
 
     return all_cpt
 

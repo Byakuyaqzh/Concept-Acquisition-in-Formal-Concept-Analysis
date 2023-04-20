@@ -14,8 +14,7 @@
 
 **fuzzy concept lattice** 模糊概念格；
 
-**approximate three-way concept lattice** 三支近似概念格，该模型来自于论文：【three-way concept analysis for
-incomplete formal contexts】；
+**approximate three-way concept lattice** 三支近似概念格，该模型来自于论文：【three-way concept analysis for incomplete formal contexts】；
 
 **new approximate three-way concept lattice** 由我反向优化的三支近似概念格，尽管各项效果不如前面的三支近似概念模型，但，有总比没有强。
 
